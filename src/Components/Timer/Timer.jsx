@@ -52,13 +52,21 @@ const Timer = ({subjectList, setSubjectList}) => {
             <div className="cell-title">Total Time(min)</div>
             <div className="cell-title">Remaining Time(min)</div>
             <div className="blank-cell"></div>
+            <div className="black-cell"></div>
             {subjectList.map((data,index)=>{
                 return <React.Fragment key={index}>
                     <div className={`cell ${activeSubject === index ? 'active' : ''}`}>{data.subjectName}</div>
                     <div className="cell">{data.totalTime}</div>
                     <div className="cell">{data.remainingTime}</div>
                     <div className=""><button className={activeSubject === index ? 'stop-btn' : 'start-btn'} disabled={data.remainingTime<=0} onClick={()=>startTimer(data,index)}>{activeSubject===index ? "Stop" : "Start"}</button></div>
-                </React.Fragment>
+                    <button className='reset-btn' onClick={()=>{
+                        setSubjectList((prev)=>{
+                            const newList = [...prev]
+                            newList[index].remainingTime = newList[index].totalTime
+                            return newList
+                        })
+                    }}>Reset</button>
+                    </React.Fragment>
             })}
             
         </div>
