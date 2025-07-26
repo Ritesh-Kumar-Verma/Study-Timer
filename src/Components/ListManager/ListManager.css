@@ -2,12 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .list-manager {
-  
-    max-width: 400px;
+  max-width: 400px;
 
   padding: 5px;
   background: rgba(255, 255, 255, 0.1);
@@ -23,8 +21,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.subject-list button{
-    background: rgba(255, 0, 0, 0.2); 
+.subject-list button {
+  background: rgba(255, 0, 0, 0.2);
   color: #ff4c4c;
   border: 1px solid rgba(255, 0, 0, 0.4);
   border-radius: 2px;
@@ -32,28 +30,24 @@
   cursor: pointer;
   backdrop-filter: blur(8px);
   transition: background 0.3s ease, transform 0.2s ease;
-
 }
-.subject-list button:hover{
-     background: rgba(255, 0, 0, 0.4);
+.subject-list button:hover {
+  background: rgba(255, 0, 0, 0.4);
   transform: scale(1.05);
 }
 .myform {
+  border-top: 1px solid black;
+  padding-top: 10px;
 
-    border-top: 1px solid black;
-    padding-top: 10px;
-    
   margin-top: 10px;
-  
+
   display: grid;
   grid-template-columns: 1fr 1fr;
-    gap: 5px;
+  gap: 5px;
 }
 .myform input {
-
-    border: none;
-
+  border: none;
 }
-.myform input:focus{
-    outline: none;
+.myform input:focus {
+  outline: none;
 }
