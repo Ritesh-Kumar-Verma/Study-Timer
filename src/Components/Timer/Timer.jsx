@@ -1,7 +1,9 @@
-import React, {useState,useRef} from 'react'
+import React, {useState,useRef, useEffect} from 'react'
 import './Timer.css'
 const Timer = ({subjectList, setSubjectList}) => {
-    
+    useEffect(()=>{
+        return ()=>{clearInterval(intervalRef.current)}
+    },[])
 
     const [activeSubject , setActiveSubject] = useState(null)
     
@@ -12,6 +14,8 @@ const Timer = ({subjectList, setSubjectList}) => {
 
     const startTimer=(data,index)=>{
         if(timerRunning){
+            setTimerRunning(false)
+            setActiveSubject(null)
             clearInterval(intervalRef.current)
             return
         }
@@ -23,13 +27,14 @@ const Timer = ({subjectList, setSubjectList}) => {
              
             if(timeLeftSecond<=0){
                 clearInterval(intervalRef.current)
+                setActiveSubject(null)
                 return
             }
             timeLeftSecond--;
 
             setSubjectList((prevList)=>{
                 const newSubjectList = [...prevList]
-                newSubjectList[index].remainingTime = (timeLeftSecond/100).toFixed(2)
+                newSubjectList[index].remainingTime = (timeLeftSecond/60).toFixed(2)
                 return newSubjectList
             })
 
@@ -37,7 +42,11 @@ const Timer = ({subjectList, setSubjectList}) => {
     }
 
   return (
-    <div className='home'>
+    
+    <div className="timer-window">
+
+    
+    
         <div className="timer">
             <div className="cell-title">Subject</div>
             <div className="cell-title">Total Time(min)</div>
@@ -45,15 +54,16 @@ const Timer = ({subjectList, setSubjectList}) => {
             <div className="blank-cell"></div>
             {subjectList.map((data,index)=>{
                 return <React.Fragment key={index}>
-                    <div className={`cell ${activeSubject === index ? 'active' : ''}`}>{data.subjectname}</div>
+                    <div className={`cell ${activeSubject === index ? 'active' : ''}`}>{data.subjectName}</div>
                     <div className="cell">{data.totalTime}</div>
                     <div className="cell">{data.remainingTime}</div>
-                    <div className="start-button"><button onClick={()=>startTimer(data,index)}>{activeSubject===index ? "Stop" : "Start"}</button></div>
+                    <div className=""><button className={activeSubject === index ? 'stop-btn' : 'start-btn'} disabled={data.remainingTime<=0} onClick={()=>startTimer(data,index)}>{activeSubject===index ? "Stop" : "Start"}</button></div>
                 </React.Fragment>
             })}
+            
         </div>
+            </div>
 
-    </div>
   )
 }
 

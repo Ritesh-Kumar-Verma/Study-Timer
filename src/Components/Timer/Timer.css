@@ -1,30 +1,84 @@
-.home {
-  background-color: #a4ccd9;
-  height: 100%;
-  width: 100%;
+.timer-window {
+  display: flex;
+  justify-content: center;
 }
 
-.timer{
-    width: fit-content;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 5px 0 0 5px;
-    border: 1px solid black;
-    background-color: #C4E1E6;
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr;
-    width: 400px;
-    gap: 10px;
+.timer {
+  height: fit-content;
+/*   
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff; */
+
+  padding: 5px;
+  max-width: 400px;
+  gap: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.cell-title{
-    border-bottom: 1px solid gray;
+.cell-title {
+  border-bottom: 1px solid gray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.cell{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active {
+ background-color: rgba(0, 126, 6, 0.2); 
+     animation: blink 1s infinite;
 
 }
-.active{
-    background-color: aqua;
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+
+.start-btn{
+  background: rgba(0, 255, 0, 0.2); 
+  color: #4cff4c;
+  border: 1px solid rgba(0, 255, 0, 0.4);
+  border-radius: 2px;
+  padding: 6px 12px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.stop-btn{
+  background: rgba(255, 0, 0, 0.2); 
+  color: #ff4c4c;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  border-radius: 2px;
+  padding: 6px 12px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease, transform 0.2s ease;
+
+}
+.start-btn:hover {
+  background: rgba(0, 255, 0, 0.35);
+  transform: scale(1.05);
+}
+
+.start-btn:active {
+  transform: scale(0.95);
+}
+
+.start-btn:disabled {
+  background: rgba(128, 128, 128, 0.2);
+  color: #aaa;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  cursor: not-allowed;
 }

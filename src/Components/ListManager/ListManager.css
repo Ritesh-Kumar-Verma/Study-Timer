@@ -1,0 +1,59 @@
+.list-manager-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.list-manager {
+  
+    max-width: 400px;
+
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+.subject-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.subject-list button{
+    background: rgba(255, 0, 0, 0.2); 
+  color: #ff4c4c;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  border-radius: 2px;
+  padding: 6px 12px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease, transform 0.2s ease;
+
+}
+.subject-list button:hover{
+     background: rgba(255, 0, 0, 0.4);
+  transform: scale(1.05);
+}
+.myform {
+
+    border-top: 1px solid black;
+    padding-top: 10px;
+    
+  margin-top: 10px;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+.myform input {
+
+    border: none;
+
+}
+.myform input:focus{
+    outline: none;
+}

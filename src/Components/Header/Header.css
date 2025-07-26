@@ -1,13 +1,44 @@
-header{
-    height: fit-content;
-    padding: 10px 0 10px 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: #8DBCC7;
+header {
+  width: 100%;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(
+    to right,
+    rgba(248, 205, 218, 0.3),
+    rgba(29, 43, 100, 0.3)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
 }
 
+.timer-btn, .listmanager-btn {
+ background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  
+}
+.timer-btn:hover , .listmanager-btn:hover{
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
 
-.title{
-
+.active-tab {
+  border-radius: 12px 12px 0 0 ;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
